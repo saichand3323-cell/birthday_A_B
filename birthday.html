@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Akhila Bhavani Garuuu...</title>
+
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;   /* keep center */
+
+    background: 
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+       .content {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border-radius: 15px;
+
+    transform: translateY(150px);   /* 👈 Moves box down properly */
+}
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        #timer {
+            margin-top: 25px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="content">
+
+<h1>🎉 Happy Birthday 🎂</h1>
+<h1>Akhila Bhavani Garuuu...</h1>
+<h2>— From a well-known stranger 💫</h2>
+
+<div id="timer"></div>
+
+</div>
+
+<script>
+function calculateTime() {
+    const birthDate = new Date("March 11, 2000 00:00:00");
+    const now = new Date();
+
+    let years = now.getFullYear() - birthDate.getFullYear();
+    let months = now.getMonth() - birthDate.getMonth();
+    let days = now.getDate() - birthDate.getDate();
+
+    if (days < 0) {
+        months--;
+        days += 30;
+    }
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    const difference = now - birthDate;
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
+    document.getElementById("timer").innerHTML =
+        "You have beautifully lived for:<br><br>" +
+        years + " Years " +
+        months + " Months " +
+        days + " Days <br>" +
+        hours + " Hours " +
+        minutes + " Minutes " +
+        seconds + " Seconds ✨";
+}
+
+setInterval(calculateTime, 1000);
+</script>
+
+</body>
+</html>
